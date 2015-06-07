@@ -8,7 +8,7 @@
 # Crontab installation (each 10 minutes)
 # 
 # 	crontab -e
-# 	*/10 * * * * <above command>
+# 	*/10 * * * * DISPLAY=:0 GSETTINGS_BACKEND=dconf <above command> >> /tmp/wallpaper.log
 # 	
 
 $URL = $argv[1];
@@ -42,5 +42,5 @@ if(!file_exists($path))
 }
 
 echo "Setting wallpaper to: $path\n";
-exec("export DISPLAY=:0; gsettings set org.gnome.desktop.background picture-uri 'file:///$path'", $output, $returnCode);
+exec("export gsettings set org.gnome.desktop.background picture-uri 'file:///$path'", $output, $returnCode);
 if($returnCode !== 0) { echo "Failed :(\n"; exit(6); }
