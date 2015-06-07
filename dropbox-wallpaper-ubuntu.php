@@ -42,5 +42,5 @@ if(!file_exists($path))
 }
 
 echo "Setting wallpaper to: $path\n";
-exec("export gsettings set org.gnome.desktop.background picture-uri 'file:///$path'", $output, $returnCode);
+exec("PID=$(pgrep gnome-session); export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|cut -d= -f2-); export gsettings set org.gnome.desktop.background picture-uri 'file:///$path'", $output, $returnCode);
 if($returnCode !== 0) { echo "Failed :(\n"; exit(6); }
