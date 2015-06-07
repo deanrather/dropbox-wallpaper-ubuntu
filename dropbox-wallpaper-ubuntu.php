@@ -24,7 +24,6 @@ $json = json_decode($json);
 if(!$json) { echo "Failed [2] :(\n"; exit(2); }
 
 $photoIndex = rand(0, sizeof($json)-1);
-$photoIndex = 14;
 $photoURL = $json[$photoIndex]->dl_url;
 if(!$json) { echo "Failed [3] :(\n"; exit(3); }
 
