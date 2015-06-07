@@ -42,5 +42,5 @@ if(!file_exists($path))
 }
 
 echo "Setting wallpaper to: $path\n";
-exec("gsettings set org.gnome.desktop.background picture-uri 'file:///$path'", $output, $returnCode);
+exec("export DISPLAY=:0; gsettings set org.gnome.desktop.background picture-uri 'file:///$path'", $output, $returnCode);
 if($returnCode !== 0) { echo "Failed :(\n"; exit(6); }
