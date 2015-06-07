@@ -3,7 +3,7 @@
 # 
 # Usage:
 # 	
-# 	wget -qO- <url to script> | php -- <url to public folder>
+# 	wget -qO- https://raw.githubusercontent.com/deanrather/dropbox-wallpaper-ubuntu/master/dropbox-wallpaper-ubuntu.php | php -- <url to public folder>
 # 
 # Crontab installation (each 10 minutes)
 # 
